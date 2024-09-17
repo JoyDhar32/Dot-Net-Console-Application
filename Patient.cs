@@ -1,19 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿// Patient.cs
+using System;
 
 namespace Assignment1
 {
     public class Patient : User
     {
-        public Patient(string id, string email, string password) : base(id, email, password) { }
-
-        public override void ShowMenu()
+        public Patient(string id, string password) : base(id, password)
         {
-            Console.WriteLine("Welcome to Patient Menu!");
-            // Add patient-specific functionalities here
+        }
+
+        public override void Greet()
+        {
+            Console.WriteLine("Hello Patient!");
         }
     }
 }

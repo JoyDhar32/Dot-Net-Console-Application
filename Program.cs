@@ -7,6 +7,12 @@ namespace Assignment1
     {
         static void Main(string[] args)
         {
+            StartLoginProcess();
+        }
+
+        // Move the login process to a separate method
+        public static void StartLoginProcess()
+        {
             string projectDirectory = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\.."));
             string filePath = Path.Combine(projectDirectory, "data.txt");
 
@@ -43,18 +49,33 @@ namespace Assignment1
                             {
                                 isAuthenticated = true;
                                 Console.Clear(); // Clear the screen after login
+
+                                User user = null;
+
+                                // Instantiate the correct user type
                                 if (role == "Administrator")
                                 {
-                                    Console.WriteLine("\nHello Admin!");
+                                    user = new Administrator(id, password);
                                 }
                                 else if (role == "Patient")
                                 {
-                                    Console.WriteLine("\nHello Patient!");
+                                    user = new Patient(id, password);
                                 }
                                 else if (role == "Doctor")
                                 {
-                                    Console.WriteLine("\nHello Doctor!");
+                                    string name = data[2].Split(':')[1].Trim();
+                                    string email = data[3].Split(':')[1].Trim();
+                                    string phone = data[4].Split(':')[1].Trim();
+                                    string address = data[5].Split(':')[1].Trim();
+                                    user = new Doctor(id, password, name, email, phone, address);
                                 }
+
+                                // Greet the user
+                                if (user != null)
+                                {
+                                    user.Greet();
+                                }
+
                                 Console.ReadKey();
                                 return; // Exit the application after successful login
                             }
@@ -70,9 +91,20 @@ namespace Assignment1
                 {
                     Console.WriteLine("Data file not found.");
                     Console.ReadKey();
-                    return; // Exit if the file is not found
+                    return;
                 }
             }
+        }
+
+        // Method to display the login menu with a design similar to the provided image
+        public static void DisplayLoginMenu()
+        {
+            Console.Clear(); // Clears the console to display a fresh menu
+            Console.WriteLine("┌───────────────────────────────────────────┐");
+            Console.WriteLine("│      DOTNET Hospital Management System     │");
+            Console.WriteLine("├───────────────────────────────────────────┤");
+            Console.WriteLine("│                   Login                   │");
+            Console.WriteLine("└───────────────────────────────────────────┘\n");
         }
 
         // Method to hide password while typing
@@ -97,18 +129,6 @@ namespace Assignment1
             } while (key.Key != ConsoleKey.Enter);
             Console.WriteLine();
             return password;
-        }
-
-        // Method to display the login menu with a design similar to the provided image
-        public static void DisplayLoginMenu()
-        {
-            Console.Clear(); // Clears the console to display a fresh menu
-            Console.WriteLine("┌───────────────────────────────────────────┐");
-            Console.WriteLine("│      DOTNET Hospital Management System    │");
-            Console.WriteLine("├-------------------------------------------|");
-            Console.WriteLine("│                   Login                   │");
-            Console.WriteLine("└───────────────────────────────────────────┘");
-            Console.WriteLine();
         }
     }
 }

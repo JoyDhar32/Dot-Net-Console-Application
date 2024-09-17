@@ -1,12 +1,19 @@
-Administrator, ID: 000001, Email: admin1@example.com, Password: adminPass1
+Administrator, ID: 1, Email: admin1@example.com, Password: 1
 Administrator, ID: 000002, Email: admin2@example.com, Password: adminPass2
 Administrator, ID: 000003, Email: admin3@example.com, Password: adminPass3
 
-Patient, ID: 000004, Email: patient1@example.com, Password: patientPass1
+Patient, ID: 2, Email: patient1@example.com, Password: 2
 Patient, ID: 000005, Email: patient2@example.com, Password: patientPass2
 Patient, ID: 000006, Email: patient3@example.com, Password: patientPass3
 Patient, ID: 000007, Email: patient4@example.com, Password: patientPass4
 
-Doctor, ID: 000008, Email: doctor1@example.com, Password: doctorPass1
-Doctor, ID: 000009, Email: doctor2@example.com, Password: doctorPass2
-Doctor, ID: 000010, Email: doctor3@example.com, Password: doctorPass3
+Doctor, ID: 3, Name: David Doctorson, Email: David.Doctorson@gmail.com, Password: 3, Phone: 0412456876, Address: 19 St, Rockdale, Sydney, NSW
+Doctor, ID: 000009, Name: Jastina Olive, Email: Jastina.Olive@gmail.com, Password: doctorPass2, Phone: 0412333676, Address: 23 St, Banksia Street, Sydney, NSW
+Doctor, ID: 000010, Name: Prasanta Bodiya, Email: Prasanta.Bodiya@gmail.com, Password: doctorPass3, Phone: 0412313676, Address: 55 Real Street, Sydney, NSW
+Doctor, ID: 28611, Name: Doctor1 Doc, Email: doc@gmail.com, Phone: 0426052977, Address: 85 st banksia, sydney, nsw rockda, sdf, sdf
+Doctor, ID: 28996, Name: Joyy Dharr, Email: joy@gmail.com, Phone: 0426059100, Address: 85 railway, Rockdale, NSW, Password: aaa
+Patient, ID: 37520, Name: rupda sasei, Email: sesa@gmail.com, Phone: 04260597898, Address: 23 SDF, SES, WSSA, Password: 555
+Doctor, ID: 20435, Name: abc asd, Email: sd@gmail.com, Password: asdf, Phone: 5565466, Address: s se, se, sss
+Patient, 34970, pai sese, ase@gmail.com, asd, asse, s se, sa, ese
+Patient, ID: 36864, Name: Pat1 ent1, Email: pat@gmail.com, Password: sdsd, Phone: 213131, Address: 12 sed, ese, as
+Patient, ID: 38234, Name: firsrt patient, Email: firstp@gmail.com, Password: qq, Phone: 12313243, Address: 32 se, se, segs
