@@ -1,0 +1,12 @@
+Administrator, ID: 000001, Email: admin1@example.com, Password: adminPass1
+Administrator, ID: 000002, Email: admin2@example.com, Password: adminPass2
+Administrator, ID: 000003, Email: admin3@example.com, Password: adminPass3
+
+Patient, ID: 000004, Email: patient1@example.com, Password: patientPass1
+Patient, ID: 000005, Email: patient2@example.com, Password: patientPass2
+Patient, ID: 000006, Email: patient3@example.com, Password: patientPass3
+Patient, ID: 000007, Email: patient4@example.com, Password: patientPass4
+
+Doctor, ID: 000008, Email: doctor1@example.com, Password: doctorPass1
+Doctor, ID: 000009, Email: doctor2@example.com, Password: doctorPass2
+Doctor, ID: 000010, Email: doctor3@example.com, Password: doctorPass3
