@@ -39,8 +39,8 @@ namespace Assignment1
                         string id = data[1].Split(':')[1].Trim();
                         string name = data[2].Split(':')[1].Trim();
                         string email = data[3].Split(':')[1].Trim();
-                        string phone = data[4].Split(':')[1].Trim();
-                        string address = data[5].Split(':')[1].Trim();
+                        string phone = data[5].Split(':')[1].Trim();
+                        string address = string.Join(",", data, 6, data.Length - 6).Trim();
 
                         // Create a new Doctor object and add it to the list
                         doctors.Add(new Doctor(id, "", name, email, phone, address));

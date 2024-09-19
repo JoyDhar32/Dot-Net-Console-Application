@@ -38,11 +38,15 @@ namespace Assignment1
                     {
                         string[] data = line.Split(',');
 
-                        if (data.Length >= 3) // Ensure there are at least 3 components (role, id, password)
+                        if (data.Length >= 6) // Ensure there are at least 6 components (role, id, name, email, password, phone)
                         {
-                            string role = data[0].Trim();
-                            string id = data[1].Contains(":") ? data[1].Split(':')[1].Trim() : string.Empty;
-                            string password = data[3].Contains(":") ? data[3].Split(':')[1].Trim() : string.Empty;
+                            string role = data[0].Trim(); // Role: Administrator, Doctor, Patient
+                            string id = ExtractField(data[1], "ID"); // Extract ID
+                            string name = ExtractField(data[2], "Name"); // Extract Name
+                            string email = ExtractField(data[3], "Email"); // Extract Email
+                            string password = ExtractField(data[4], "Password"); // Extract Password
+                            string phone = ExtractField(data[5], "Phone"); // Extract Phone
+                            string address = ExtractField(data[6], "Address"); // Extract Address
 
                             // Check if the entered ID and password match
                             if (id == inputId && password == inputPassword)
@@ -59,15 +63,12 @@ namespace Assignment1
                                 }
                                 else if (role == "Patient")
                                 {
-                                    user = new Patient(id, password);
+                                    user = new Patient(id, password, name, email, phone, address);
                                 }
                                 else if (role == "Doctor")
                                 {
-                                    string name = data[2].Split(':')[1].Trim();
-                                    string email = data[3].Split(':')[1].Trim();
-                                    string phone = data[4].Split(':')[1].Trim();
-                                    string address = data[5].Split(':')[1].Trim();
                                     user = new Doctor(id, password, name, email, phone, address);
+
                                 }
 
                                 // Greet the user
@@ -85,6 +86,7 @@ namespace Assignment1
                     if (!isAuthenticated)
                     {
                         Console.WriteLine("\nInvalid credentials. Please try again.\n");
+                        Console.ReadKey();
                     }
                 }
                 else
@@ -94,6 +96,17 @@ namespace Assignment1
                     return;
                 }
             }
+        }
+
+        // Helper method to extract field values
+        private static string ExtractField(string data, string fieldName)
+        {
+            var parts = data.Split(':');
+            if (parts.Length > 1)
+            {
+                return parts[1].Trim();
+            }
+            return string.Empty;
         }
 
         // Method to display the login menu with a design similar to the provided image
