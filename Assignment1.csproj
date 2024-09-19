@@ -46,10 +46,15 @@
     <Compile Include="AddDoctor.cs" />
     <Compile Include="AddPatient.cs" />
     <Compile Include="Administrator.cs" />
+    <Compile Include="AdministratorData\ListAllDoctors.cs" />
     <Compile Include="CheckDoctorDetails.cs" />
     <Compile Include="CheckPatientDetails.cs" />
     <Compile Include="Doctor.cs" />
-    <Compile Include="ListAlllDoctors.cs" />
+    <Compile Include="DoctorData\AllAppointments.cs" />
+    <Compile Include="DoctorData\ListAppointmentWithPatient.cs" />
+    <Compile Include="DoctorData\MyDetails.cs" />
+    <Compile Include="DoctorData\MyPatients.cs" />
+    <Compile Include="DoctorData\ParticularPatient.cs" />
     <Compile Include="ListAllPatients.cs" />
     <Compile Include="Patient.cs" />
     <Compile Include="PatientData\BookAppointment.cs" />
@@ -64,7 +69,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="appointment.txt" />
     <Content Include="data.txt" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

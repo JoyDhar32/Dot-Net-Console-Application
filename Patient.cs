@@ -67,7 +67,7 @@ namespace Assignment1
                         new PatientData.MyAppointments(this.Name).Execute();
                         break;
                     case "4":
-                        new PatientData.BookAppointment(this.Name).Execute();// Book an appointment
+                        new PatientData.BookAppointment(this.Id, this.Name).Execute(); // Book an appointment
                         break;
                     case "5":
                         exit = true;

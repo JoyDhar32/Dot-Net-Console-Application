@@ -43,10 +43,15 @@ namespace Assignment1
 
                 switch (choice)
                 {
+
                     case "1":
-                        var listDoctors = new ListAllDoctors();
-                        listDoctors.Execute();
+                        var listDoctors = new AdministratorData.ListAllDoctors();
+                        listDoctors.Execute();  // Calls the ListAllDoctors class to display all doctors
                         break;
+
+
+
+
                     case "2":
                         var checkDoctor = new CheckDoctorDetails();
                         checkDoctor.Execute();

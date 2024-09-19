@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Linq;
 
 namespace Assignment1
 {
@@ -38,7 +39,7 @@ namespace Assignment1
                     {
                         string[] data = line.Split(',');
 
-                        if (data.Length >= 6) // Ensure there are at least 6 components (role, id, name, email, password, phone)
+                        if (data.Length >= 6) // Ensure there are at least 6 components (role, id, name, email, password, phone, address)
                         {
                             string role = data[0].Trim(); // Role: Administrator, Doctor, Patient
                             string id = ExtractField(data[1], "ID"); // Extract ID
@@ -46,7 +47,12 @@ namespace Assignment1
                             string email = ExtractField(data[3], "Email"); // Extract Email
                             string password = ExtractField(data[4], "Password"); // Extract Password
                             string phone = ExtractField(data[5], "Phone"); // Extract Phone
-                            string address = ExtractField(data[6], "Address"); // Extract Address
+
+                            string address = "";
+                            if (data.Length > 6) // Check if address field exists
+                            {
+                                 address = string.Join(",", data, 6, data.Length - 6).Split(':')[1].Trim();
+                            }
 
                             // Check if the entered ID and password match
                             if (id == inputId && password == inputPassword)
@@ -68,7 +74,6 @@ namespace Assignment1
                                 else if (role == "Doctor")
                                 {
                                     user = new Doctor(id, password, name, email, phone, address);
-
                                 }
 
                                 // Greet the user
@@ -81,6 +86,12 @@ namespace Assignment1
                                 return; // Exit the application after successful login
                             }
                         }
+                        else
+                        {
+                            // Skip invalid or incomplete records (like appointments) Which less 6
+                          //  Console.WriteLine("Invalid record found, skipping...");
+                        }
+
                     }
 
                     if (!isAuthenticated)

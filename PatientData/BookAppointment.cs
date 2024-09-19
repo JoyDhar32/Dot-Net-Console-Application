@@ -7,14 +7,17 @@ namespace Assignment1.PatientData
     public class BookAppointment
     {
         private string filePath; // Class-level variable for the file path
+        private string patientId; // Store the patient's ID
         private string patientName; // Store the patient's name
 
-        // Constructor with patient's name as parameter
-        public BookAppointment(string patientName)
+        // Constructor with patient's ID and name as parameters
+        public BookAppointment(string patientId, string patientName)
         {
+            this.patientId = patientId; // Store patient ID
             this.patientName = patientName; // Store patient name
+
             // Initialize the file path
-            string projectDirectory = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\"));
+            string projectDirectory = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\.."));
             filePath = Path.Combine(projectDirectory, "data.txt");
         }
 
@@ -61,7 +64,7 @@ namespace Assignment1.PatientData
                     string appointmentDescription = Console.ReadLine();
 
                     // Store the appointment in the data.txt file
-                    StoreAppointment(patientName, doctorName, appointmentDescription);
+                    StoreAppointment(patientId, patientName, doctorId, doctorName, appointmentDescription);
 
                     Console.WriteLine("\nThe appointment has been booked successfully!");
                     Console.WriteLine("\nPress any key to return to the menu...");
@@ -126,12 +129,12 @@ namespace Assignment1.PatientData
         }
 
         // Method to store the appointment in data.txt
-        private void StoreAppointment(string patientName, string doctorName, string description)
+        private void StoreAppointment(string patientId, string patientName, string doctorId, string doctorName, string description)
         {
             try
             {
                 // Format the appointment data
-                string appointmentData = $"appointment, PatientName: {patientName}, DoctorName: {doctorName}, Description: {description}, Date: {DateTime.Now}";
+                string appointmentData = $"appointment, PatientId: {patientId}, PatientName: {patientName}, DoctorId: {doctorId}, DoctorName: {doctorName}, Description: {description}, Date: {DateTime.Now}";
 
                 // Append the appointment to the file
                 using (StreamWriter sw = File.AppendText(filePath))
