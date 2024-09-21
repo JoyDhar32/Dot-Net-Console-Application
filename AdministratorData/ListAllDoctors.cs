@@ -12,17 +12,17 @@ namespace Assignment1.AdministratorData
 
             // Display the menu header
             Console.WriteLine("┌───────────────────────────────────────────┐");
-            Console.WriteLine("│      DOTNET Hospital Management System     │");
-            Console.WriteLine("├───────────────────────────────────────────┤");
+            Console.WriteLine("│      DOTNET Hospital Management System    │");
+            Console.WriteLine("├-------------------------------------------┤");
             Console.WriteLine("│                 All Doctors               │");
             Console.WriteLine("└───────────────────────────────────────────┘\n");
 
             Console.WriteLine("All doctors registered to the DOTNET Hospital Management System");
             Console.WriteLine("Name                 | Email Address             | Phone       | Address");
-            Console.WriteLine("─────────────────────────────────────────────────────────────────────────────");
+            Console.WriteLine("-------------------------------------------------------------------------------------");
 
             // Get the file path
-            string projectDirectory = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\.."));
+            string projectDirectory = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\.."));
             string filePath = Path.Combine(projectDirectory, "data.txt");
 
             if (File.Exists(filePath))
@@ -35,18 +35,26 @@ namespace Assignment1.AdministratorData
                 {
                     if (line.StartsWith("Doctor"))
                     {
-                        string[] data = line.Split(',');
-
-                        if (data.Length >= 7) // Ensure there are enough fields
+                        // Use a different parsing strategy that handles the commas in the address
+                        try
                         {
-                            string id = ExtractField(data[1], "ID");
-                            string name = ExtractField(data[2], "Name");
-                            string email = ExtractField(data[3], "Email");
-                            string phone = ExtractField(data[5], "Phone");
-                            string address = ExtractField(data[6], "Address");
+                            string[] parts = line.Split(new[] { "Doctor, ID:", "Name:", "Email:", "Password:", "Phone:", "Address:" }, StringSplitOptions.None);
 
-                            // Create a new Doctor object and add it to the list
-                            doctors.Add(new Doctor(id, "", name, email, phone, address));
+                            if (parts.Length == 7)
+                            {
+                                string id = parts[1].Trim();
+                                string name = parts[2].Trim();
+                                string email = parts[3].Trim();
+                                string phone = parts[5].Trim();
+                                string address = parts[6].Trim();  // Capture the full address
+
+                                // Create a new Doctor object and add it to the list
+                                doctors.Add(new Doctor(id, "", name, email, phone, address));
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine($"Error parsing doctor data: {ex.Message}");
                         }
                     }
                 }

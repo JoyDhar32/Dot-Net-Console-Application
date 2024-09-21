@@ -53,16 +53,16 @@ namespace Assignment1
 
 
                     case "2":
-                        var checkDoctor = new CheckDoctorDetails();
+                        var checkDoctor = new AdministratorData.CheckDoctorDetails();
                         checkDoctor.Execute();
                         break;
                     case "3":
-                        var listPatients = new ListAllPatients();
+                        var listPatients = new AdministratorData.AllPatients();
                         listPatients.Execute();
                         break;
                     case "4":
-                        var checkPatient = new CheckPatientDetails();
-                        checkPatient.Execute();
+                        var checkPatientDetails = new AdministratorData.CheckPatientDetails();
+                        checkPatientDetails.Execute();
                         break;
                     case "5":
                         var addDoctor = new AddDoctor();

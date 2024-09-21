@@ -5,10 +5,5 @@ Patient, ID: 322521, Name: Second patient, Email: pat@gmail.com, Password: 33, P
 
 
 Doctor, ID: 2, Name: Doctor A, Email: docA@gmail.com, Password: 2, Phone: 1232311, Address: 32 se, sydney, nsw, sddsds
-Doctor, ID: 27725, Name: Doctor B, Email: docB@gmail.com, Password: pat, Phone: 1232311, Address: 32 se, sydney, nsw
-Doctor, ID: 28725, Name: Doctor C, Email: docC@gmail.com, Password: pat, Phone: 1232311, Address: 32 se, sydney, nsw
-Doctor, ID: 29725, Name: Doctor D, Email: docD@gmail.com, Password: pat, Phone: 1232311, Address: 32 se, sydney, nsw
-Doctor, ID: 29396, Name: Doctor A, Email: docA@gmail.com, Password: 11, Phone: 0426525552, Address: 85 Railway street, Rockdale, Sydney, NSW 85, Sydney, NSW
 
-Doctor, ID: 28531, Name: Joy Dhar, Email: JOy@gmail.com, Password: 3, Phone: 01452255, Address: 85 Railway, Rockdale, NSW
-appointment, PatientId: 3, PatientName: first patient, DoctorId: 28531, DoctorName: Joy Dhar, Description: Headach, Date: 19/09/2024 3:55:55 PM
+Doctor, ID: 28250, Name: Joy Dhar, Email: Joy@gmail.com, Password: 2, Phone: 0426059100, Address: 85 Railway, Rockdale, NSW
