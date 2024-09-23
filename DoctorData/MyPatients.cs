@@ -6,119 +6,104 @@ namespace Assignment1.DoctorData
 {
     public class MyPatients
     {
-        private Doctor _loggedInDoctor; // Reference to the currently logged-in doctor
+        private string filePath;
 
-        public MyPatients(Doctor loggedInDoctor)
+        // Constructor to initialize file path
+        public MyPatients()
         {
-            _loggedInDoctor = loggedInDoctor; // Set the logged-in doctor
+            string projectDirectory = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\.."));
+            filePath = Path.Combine(projectDirectory, "data.txt");
         }
 
         public void Execute()
         {
             Console.Clear();
             Console.WriteLine("┌───────────────────────────────────────────┐");
-            Console.WriteLine("│              List Patients                │");
+            Console.WriteLine("│               My Patients                 │");
             Console.WriteLine("└───────────────────────────────────────────┘\n");
 
-            Console.WriteLine($"Patients assigned to Dr. {_loggedInDoctor.Name}:\n");
-
-            // Headers
-            Console.WriteLine("Patient              | Doctor                | Email Address         | Phone       | Address");
-            Console.WriteLine("───────────────────────────────────────────────────────────────────────────────────────────");
-
-            // Read and process the data.txt file
-            string projectDirectory = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\.."));
-            string filePath = Path.Combine(projectDirectory, "data.txt");
-
-            if (File.Exists(filePath))
+            // Fetch and display patient list
+            List<PatientDetails> patients = GetPatients();
+            if (patients.Count == 0)
             {
-                string[] lines = File.ReadAllLines(filePath);
-                List<Patient> patients = new List<Patient>();
-
-                foreach (string line in lines)
-                {
-                    if (line.StartsWith("appointment"))
-                    {
-                        string[] data = line.Split(',');
-
-                        string doctorName = data[2].Split(':')[1].Trim(); // Extract doctor name
-                        if (doctorName == _loggedInDoctor.Name) // Check if the doctor matches the current logged-in doctor
-                        {
-                            string patientName = data[1].Split(':')[1].Trim(); // Extract patient name
-
-                            // Find patient details (name, email, phone, address)
-                            Patient patient = GetPatientDetails(patientName, doctorName, lines);
-                            if (patient != null)
-                            {
-                                patients.Add(patient);
-                            }
-                        }
-                    }
-                }
-
-                // Display patient information
-                foreach (var patient in patients)
-                {
-                    Console.WriteLine(patient.ToString());
-                }
-
-                if (patients.Count == 0)
-                {
-                    Console.WriteLine("No patients found for this doctor.");
-                }
+                Console.WriteLine("No patients found.");
             }
             else
             {
-                Console.WriteLine("Data file not found.");
+                Console.WriteLine($"{"Patient Name",-20} | {"Email Address",-25} | {"Phone",-12} | {"Address",-30}");
+                Console.WriteLine(new string('-', 90)); // Separator line
+
+                // Loop through and display each patient
+                foreach (var patient in patients)
+                {
+                    Console.WriteLine($"{patient.Name,-20} | {patient.Email,-25} | {patient.Phone,-12} | {patient.Address,-30}");
+                }
             }
 
             Console.WriteLine("\nPress any key to return to the menu...");
             Console.ReadKey();
         }
 
-        // Helper method to find patient details in the data.txt file
-        private Patient GetPatientDetails(string patientName, string doctorName, string[] lines)
+        // Method to read patients from data.txt
+        private List<PatientDetails> GetPatients()
         {
-            foreach (string line in lines)
-            {
-                if (line.StartsWith("Patient") && line.Contains(patientName))
-                {
-                    string[] data = line.Split(',');
-                    string name = data[2].Split(':')[1].Trim();
-                    string email = data[3].Split(':')[1].Trim();
-                    string phone = data[5].Split(':')[1].Trim();
-                    string address = string.Join(",", data, 6, data.Length - 6).Trim();
+            List<PatientDetails> patients = new List<PatientDetails>();
 
-                    return new Patient(name, doctorName, email, phone, address);
+            if (File.Exists(filePath))
+            {
+                string[] lines = File.ReadAllLines(filePath);
+
+                // Loop through each line and extract patient details
+                foreach (string line in lines)
+                {
+                    if (line.StartsWith("Patient")) // Filter patient lines
+                    {
+                        string[] data = line.Split(',');
+
+                        string name = ExtractField(data[2], "Name");
+                        string email = ExtractField(data[3], "Email");
+                        string phone = ExtractField(data[5], "Phone");
+                        string address = ExtractField(data[6], "Address");
+
+                        // Add the patient details to the list
+                        patients.Add(new PatientDetails(name, email, phone, address));
+                    }
                 }
             }
+            else
+            {
+                Console.WriteLine($"Error: data.txt file not found at {filePath}");
+            }
 
-            return null;
+            return patients;
+        }
+
+        // Method to extract field values from formatted text (e.g., "Name: John Doe")
+        private string ExtractField(string data, string fieldName)
+        {
+            var parts = data.Split(':');
+            if (parts.Length > 1)
+            {
+                return parts[1].Trim();
+            }
+            return string.Empty;
         }
     }
 
-    // Patient class to store patient details
-    public class Patient
+    // Class to hold patient details
+    public class PatientDetails
     {
         public string Name { get; set; }
-        public string DoctorName { get; set; }
         public string Email { get; set; }
         public string Phone { get; set; }
         public string Address { get; set; }
 
-        public Patient(string name, string doctorName, string email, string phone, string address)
+        public PatientDetails(string name, string email, string phone, string address)
         {
             Name = name;
-            DoctorName = doctorName;
             Email = email;
             Phone = phone;
             Address = address;
-        }
-
-        // Override ToString() to format patient details
-        public override string ToString()
-        {
-            return $"{Name.PadRight(20)} | {DoctorName.PadRight(20)} | {Email.PadRight(20)} | {Phone.PadRight(12)} | {Address}";
         }
     }
 }

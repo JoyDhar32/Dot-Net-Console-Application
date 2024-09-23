@@ -7,12 +7,12 @@ namespace Assignment1.PatientData
     public class MyAppointments
     {
         private string filePath;
-        private string patientName;
+        private string patientId;
 
-        // Constructor to initialize file path and patient's name
-        public MyAppointments(string patientName)
+        // Constructor to initialize file path and patient's ID
+        public MyAppointments(string patientId)
         {
-            this.patientName = patientName;
+            this.patientId = patientId;
             string projectDirectory = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\.."));
             filePath = Path.Combine(projectDirectory, "data.txt");
         }
@@ -21,18 +21,18 @@ namespace Assignment1.PatientData
         {
             Console.Clear();
             Console.WriteLine("┌───────────────────────────────────────────┐");
-            Console.WriteLine("│                My Appointments            │");
+            Console.WriteLine("│              My Appointments              │");
             Console.WriteLine("└───────────────────────────────────────────┘\n");
 
             // Fetch and display appointments for the logged-in patient
-            List<Appointment> appointments = GetAppointmentsForPatient(patientName);
+            List<AppointmentDetails> appointments = GetAppointmentsForPatient(patientId);
             if (appointments.Count == 0)
             {
-                Console.WriteLine($"No appointments found for {patientName} Book From Menu");
+                Console.WriteLine($"No appointment found for patient ID: {patientId}.");
             }
             else
             {
-                Console.WriteLine($"Appointments for {patientName}:\n");
+                Console.WriteLine($"Appointments for Patient ID {patientId}:\n");
                 Console.WriteLine($"{"Doctor",-20} | {"Patient",-20} | {"Description",-30}");
                 Console.WriteLine(new string('-', 70)); // Separator line
 
@@ -47,10 +47,10 @@ namespace Assignment1.PatientData
             Console.ReadKey();
         }
 
-        // Method to read appointments from data.txt and filter by patient name
-        private List<Appointment> GetAppointmentsForPatient(string patientName)
+        // Method to read appointments from data.txt and filter by patient ID
+        private List<AppointmentDetails> GetAppointmentsForPatient(string patientId)
         {
-            List<Appointment> appointments = new List<Appointment>();
+            List<AppointmentDetails> appointments = new List<AppointmentDetails>();
 
             if (File.Exists(filePath))
             {
@@ -63,13 +63,15 @@ namespace Assignment1.PatientData
                     {
                         string[] data = line.Split(',');
 
-                        string patient = ExtractField(data[1], "PatientName");
-                        if (patient.Equals(patientName, StringComparison.OrdinalIgnoreCase))
+                        string patient = ExtractField(data[1], "PatientId"); // Extract PatientId
+                        if (patient.Equals(patientId, StringComparison.OrdinalIgnoreCase))
                         {
-                            string doctor = ExtractField(data[2], "DoctorName");
-                            string description = ExtractField(data[3], "Description");
+                            // Appointment found for the patient, add to the list
+                            string patientName = ExtractField(data[2], "PatientName");
+                            string doctorName = ExtractField(data[4], "DoctorName");
+                            string description = ExtractField(data[5], "Description");
 
-                            appointments.Add(new Appointment(patient, doctor, description));
+                            appointments.Add(new AppointmentDetails(doctorName, patientName, description));
                         }
                     }
                 }
@@ -82,7 +84,7 @@ namespace Assignment1.PatientData
             return appointments;
         }
 
-        // Method to extract field values from formatted text (e.g., "PatientName: John Doe")
+        // Method to extract field values from formatted text (e.g., "PatientId: 12345")
         private string ExtractField(string data, string fieldName)
         {
             var parts = data.Split(':');
@@ -94,17 +96,17 @@ namespace Assignment1.PatientData
         }
     }
 
-    // Appointment class to hold the appointment details
-    public class Appointment
+    // Class to hold appointment details
+    public class AppointmentDetails
     {
-        public string PatientName { get; set; }
         public string DoctorName { get; set; }
+        public string PatientName { get; set; }
         public string Description { get; set; }
 
-        public Appointment(string patientName, string doctorName, string description)
+        public AppointmentDetails(string doctorName, string patientName, string description)
         {
-            PatientName = patientName;
             DoctorName = doctorName;
+            PatientName = patientName;
             Description = description;
         }
     }

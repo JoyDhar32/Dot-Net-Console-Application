@@ -1,9 +1,51 @@
-Administrator, ID: 1, Name: Admin, Email: admin1@example.com, Password: 1, Phone: 0425645, Address: 19 st rockdale, nsw
+Administrator, ID: 125463, Name: Dr. Avinash Singh , Email: avinash.singh@uts.edu.au, Password: 123843, Phone: 0426057100, Address: 19 Railway st, CBD, NSW
+Administrator, ID: 185558, Name: Raymond Chia, Email:  raymond.chia@uts.edu.au , Password: 003333, Phone: 04260157785, Address: 88 Oxford st, CBD, NSW
+Administrator, ID: 125555, Name: Joy Dhar, Email: Joy.Dhar@student.uts.edu.au, Password: 123333, Phone: 0426059100, Address: 19 st rockdale, NSW
 
-Patient, ID: 3, Name: first patient, Email: pat@gmail.com, Password: 3, Phone: 1232311, Address: 32 se, sydney, nsw
-Patient, ID: 322521, Name: Second patient, Email: pat@gmail.com, Password: 33, Phone: 1232311, Address: 32 se, sydney, nsw
 
 
-Doctor, ID: 2, Name: Doctor A, Email: docA@gmail.com, Password: 2, Phone: 1232311, Address: 32 se, sydney, nsw, sddsds
 
-Doctor, ID: 28250, Name: Joy Dhar, Email: Joy@gmail.com, Password: 2, Phone: 0426059100, Address: 85 Railway, Rockdale, NSW
+Doctor, ID: 217890, Name: Tony Stack, Email: Tony@gmail.com, Password: 8598756ts, Phone: 8805478524, Address: 85 Hollywood, New York, NSW
+Doctor, ID: 282501, Name: Joy Dhar, Email: Joy@gmail.com, Password: joypass23, Phone: 0426059100, Address: 85 Railway, Rockdale, NSW
+Doctor, ID: 284511, Name: Joyeeta Das, Email: Joyta@gmail.com, Password: joyetapass, Phone: 0426854565, Address: 85 Raiway, Rockdale, NSW
+Doctor, ID: 218750, Name: Abc Sed, Email: lsd@gmail.com, Password: abcpassword, Phone: 4556545678, Address: 32 SE, Sydney, NSW
+Doctor, ID: 225780, Name: David Smith, Email: david.smith@gmail.com, Password: smith1234, Phone: 0412312312, Address: 42 King St, Brisbane, QLD
+Doctor, ID: 292310, Name: Michael Ford, Email: m.ford@gmail.com, Password: passmike12, Phone: 8805412345, Address: 78 George St, Sydney, NSW
+Doctor, ID: 202540, Name: Emily Watson, Email: ewatson@gmail.com, Password: emily12345, Phone: 0445236548, Address: 12 Queen St, Melbourne, VIC
+Doctor, ID: 292110, Name: Sophia Lewis, Email: slewis@gmail.com, Password: sophia1234, Phone: 6125412548, Address: 21 Broadway, Melbourne, VIC
+Doctor, ID: 275800, Name: John Carter, Email: jcarter@gmail.com, Password: johncarter, Phone: 0401236548, Address: 34 Ridge Rd, Adelaide, SA
+Doctor, ID: 262350, Name: Alice Brown, Email: alice.brown@gmail.com, Password: alicebrown, Phone: 0422354157, Address: 54 Lake St, Perth, WA
+
+Patient, ID: 396560, Name: Robin Halder, Email: Halder22@gmail.com, Password: robin1234, Phone: 0585545551, Address: 85 Oxford, Sydney, NSW
+Patient, ID: 308820, Name: Abc Aaabbcc, Email: abc@gmail.com, Password: aaabccc123, Phone: 1223567890, Address: 85 Railway St, Sydney, NSW
+Patient, ID: 384340, Name: DS SD, Email: ds@gmail.com, Password: dssdp4567, Phone: 5856547856, Address: 85 Forest St, Sydney, NSW
+Patient, ID: 380960, Name: Patient One, Email: one@gmail.com, Password: passone789, Phone: 0412456789, Address: 23 Prince St, Adelaide, SA
+Patient, ID: 354670, Name: Marcus Bell, Email: mbell@gmail.com, Password: mbellpass5, Phone: 0412589632, Address: 58 High St, Melbourne, VIC
+Patient, ID: 342120, Name: Sarah White, Email: swhite@gmail.com, Password: sarahwhite, Phone: 0447896541, Address: 36 Low St, Brisbane, QLD
+Patient, ID: 312340, Name: Peter Johnson, Email: pjohnson@gmail.com, Password: pjohnson23, Phone: 0412365478, Address: 12 Hill St, Sydney, NSW
+Patient, ID: 389650, Name: Linda King, Email: lking@gmail.com, Password: lindaking5, Phone: 0412789654, Address: 29 Valley St, Melbourne, VIC
+Patient, ID: 367430, Name: Emily Roberts, Email: eroberts@gmail.com, Password: emilyrob23, Phone: 0423124578, Address: 78 East St, Sydney, NSW
+Patient, ID: 325470, Name: Joshua Evans, Email: jevans@gmail.com, Password: joshevans4, Phone: 0412236987, Address: 16 Wood St, Brisbane, QLD
+Patient, ID: 314560, Name: Olivia Turner, Email: oturner@gmail.com, Password: oliviapass, Phone: 0415896523, Address: 5 Spring St, Melbourne, VIC
+Patient, ID: 309870, Name: Sophia Green, Email: sgreen@gmail.com, Password: sophiagreen, Phone: 0412398654, Address: 14 River Rd, Perth, WA
+Patient, ID: 345780, Name: Liam Clark, Email: lclark@gmail.com, Password: liamclark9, Phone: 0412569874, Address: 23 Ocean St, Brisbane, QLD
+Patient, ID: 330940, Name: Chloe Mitchell, Email: cmitchell@gmail.com, Password: chloemit78, Phone: 0412345678, Address: 49 West St, Adelaide, SA
+Patient, ID: 397450, Name: Noah Wright, Email: nwright@gmail.com, Password: noahwright, Phone: 0412354789, Address: 77 South St, Perth, WA
+
+appointment, PatientId: 396560, PatientName: Robin Halder, DoctorId: 282501, DoctorName: Joy Dhar, Description: Checkup, Date: 23/09/2024 7:59:18 AM
+appointment, PatientId: 396560, PatientName: Robin Halder, DoctorId: 218750, DoctorName: Abc Sed, Description: Normal Test, Date: 23/09/2024 7:59:44 AM
+appointment, PatientId: 396560, PatientName: Robin Halder, DoctorId: 292310, DoctorName: Michael Ford, Description: Follow-up, Date: 24/09/2024 10:30:22 AM
+appointment, PatientId: 308820, PatientName: Abc Aaabbcc, DoctorId: 292110, DoctorName: Sophia Lewis, Description: Routine Checkup, Date: 24/09/2024 9:30:00 AM
+appointment, PatientId: 384340, PatientName: DS SD, DoctorId: 275800, DoctorName: John Carter, Description: Flu, Date: 24/09/2024 11:15:22 AM
+appointment, PatientId: 380960, PatientName: Patient One, DoctorId: 217890, DoctorName: Tony Stack, Description: Vaccination, Date: 24/09/2024 2:30:00 PM
+appointment, PatientId: 354670, PatientName: Marcus Bell, DoctorId: 282501, DoctorName: Joy Dhar, Description: Dental Check, Date: 24/09/2024 3:45:00 PM
+appointment, PatientId: 342120, PatientName: Sarah White, DoctorId: 202540, DoctorName: Emily Watson, Description: Blood Test, Date: 25/09/2024 10:00:00 AM
+appointment, PatientId: 312340, PatientName: Peter Johnson, DoctorId: 225780, DoctorName: David Smith, Description: Physical Therapy, Date: 25/09/2024 11:00:00 AM
+appointment, PatientId: 389650, PatientName: Linda King, DoctorId: 292310, DoctorName: Michael Ford, Description: Eye Check, Date: 25/09/2024 2:00:00 PM
+appointment, PatientId: 367430, PatientName: Emily Roberts, DoctorId: 292110, DoctorName: Sophia Lewis, Description: Skin Consultation, Date: 25/09/2024 3:30:00 PM
+appointment, PatientId: 325470, PatientName: Joshua Evans, DoctorId: 275800, DoctorName: John Carter, Description: Heart Check, Date: 25/09/2024 4:00:00 PM
+appointment, PatientId: 314560, PatientName: Olivia Turner, DoctorId: 217890, DoctorName: Tony Stack, Description: Routine Check, Date: 26/09/2024 9:30:00 AM
+appointment, PatientId: 309870, PatientName: Sophia Green, DoctorId: 262350, DoctorName: Alice Brown, Description: Annual Checkup, Date: 26/09/2024 11:00:00 AM
+appointment, PatientId: 345780, PatientName: Liam Clark, DoctorId: 225780, DoctorName: David Smith, Description: General Checkup, Date: 26/09/2024 2:00:00 PM
+appointment, PatientId: 330940, PatientName: Chloe Mitchell, DoctorId: 292110, DoctorName: Sophia Lewis, Description: Allergy Test, Date: 26/09/2024 3:30:00 PM
+appointment, PatientId: 397450, PatientName: Noah Wright, DoctorId: 262350, DoctorName: Alice Brown, Description: Routine Check, Date: 27/09/2024 9:30:00 AM

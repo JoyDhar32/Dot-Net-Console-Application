@@ -59,6 +59,7 @@ namespace Assignment1.AdministratorData
                             Console.WriteLine($"\nDetails for {name}:");
                             Console.WriteLine("─────────────────────────────────────────────────────────────────────────────");
                             Console.WriteLine($"Name                 | Email Address             | Phone       | Address");
+                            Console.WriteLine("------------------------------------------------------------------------------");
                             Console.WriteLine($"{name.PadRight(20)} | {email.PadRight(25)} | {phone.PadRight(12)} | {address}");
                             Console.WriteLine("─────────────────────────────────────────────────────────────────────────────");
 

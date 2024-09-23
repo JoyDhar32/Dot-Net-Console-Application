@@ -60,11 +60,11 @@ namespace Assignment1
                         break;
                     case "2":
                         // Calls the MyDoctors class to list the patient's doctor details
-                        new PatientData.MyDoctors().Execute();
+                        new PatientData.MyDoctors(this.Id).Execute();
                         break;
                     case "3":
                         // Calls the MyAppointments class to list all patient appointments
-                        new PatientData.MyAppointments(this.Name).Execute();
+                        new PatientData.MyAppointments(this.Id).Execute();
                         break;
                     case "4":
                         new PatientData.BookAppointment(this.Id, this.Name).Execute(); // Book an appointment

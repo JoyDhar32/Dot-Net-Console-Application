@@ -65,11 +65,11 @@ namespace Assignment1
                         checkPatientDetails.Execute();
                         break;
                     case "5":
-                        var addDoctor = new AddDoctor();
+                        var addDoctor = new AdministratorData.AddDoctor();
                         addDoctor.Execute();
                         break;
                     case "6":
-                        var addPatient = new AddPatient();
+                        var addPatient = new AdministratorData.AddPatient();
                         addPatient.Execute();
                         break;
                     case "7":

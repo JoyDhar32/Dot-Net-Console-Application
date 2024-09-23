@@ -18,10 +18,11 @@ namespace Assignment1.AdministratorData
         public void Execute()
         {
             Console.Clear();
+            // Display the menu header
             Console.WriteLine("┌───────────────────────────────────────────┐");
-            Console.WriteLine("│              DOTNET Hospital Management System            │");
-            Console.WriteLine("├───────────────────────────────────────────┤");
-            Console.WriteLine("│                 All Patients                │");
+            Console.WriteLine("│      DOTNET Hospital Management System    │");
+            Console.WriteLine("├-------------------------------------------┤");
+            Console.WriteLine("│                All Patients               │");
             Console.WriteLine("└───────────────────────────────────────────┘\n");
 
             Console.WriteLine("All patients registered to the DOTNET Hospital Management System");
@@ -68,6 +69,62 @@ namespace Assignment1.AdministratorData
                 Console.WriteLine("Data file not found.");
                 Console.ReadKey();
             }
+        }
+
+        // Method Overloading: Find patient by ID
+        public Patient FindPatient(string id)
+        {
+            if (File.Exists(filePath))
+            {
+                string[] lines = File.ReadAllLines(filePath);
+
+                foreach (string line in lines)
+                {
+                    if (line.StartsWith("Patient"))
+                    {
+                        string[] data = line.Split(',');
+                        string patientId = ExtractField(data[1], "ID");
+
+                        if (patientId == id)
+                        {
+                            string name = ExtractField(data[2], "Name");
+                            string email = ExtractField(data[3], "Email");
+                            string phone = ExtractField(data[5], "Phone");
+                            string address = string.Join(",", data, 6, data.Length - 6).Trim();
+                            return new Patient(patientId, name, email, phone, address);
+                        }
+                    }
+                }
+            }
+            return null; // If no patient is found
+        }
+
+        // Method Overloading: Find patient by name
+        public Patient FindPatientByName(string name)
+        {
+            if (File.Exists(filePath))
+            {
+                string[] lines = File.ReadAllLines(filePath);
+
+                foreach (string line in lines)
+                {
+                    if (line.StartsWith("Patient"))
+                    {
+                        string[] data = line.Split(',');
+                        string patientName = ExtractField(data[2], "Name");
+
+                        if (patientName.ToLower() == name.ToLower())
+                        {
+                            string id = ExtractField(data[1], "ID");
+                            string email = ExtractField(data[3], "Email");
+                            string phone = ExtractField(data[5], "Phone");
+                            string address = string.Join(",", data, 6, data.Length - 6).Trim();
+                            return new Patient(id, patientName, email, phone, address);
+                        }
+                    }
+                }
+            }
+            return null; // If no patient is found
         }
 
         // Helper method to extract field value based on format (e.g., "ID: 1")

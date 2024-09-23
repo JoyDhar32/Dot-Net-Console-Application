@@ -125,7 +125,7 @@ namespace Assignment1
         {
             Console.Clear(); // Clears the console to display a fresh menu
             Console.WriteLine("┌───────────────────────────────────────────┐");
-            Console.WriteLine("│      DOTNET Hospital Management System     │");
+            Console.WriteLine("│      DOTNET Hospital Management System    │");
             Console.WriteLine("├───────────────────────────────────────────┤");
             Console.WriteLine("│                   Login                   │");
             Console.WriteLine("└───────────────────────────────────────────┘\n");

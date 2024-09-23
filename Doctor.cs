@@ -66,10 +66,10 @@ namespace Assignment1
                         new DoctorData.MyDetails(this).Execute(); // Pass the current doctor object to MyDetails
                         break;
                     case "2":
-                        new DoctorData.MyPatients(this).Execute();  // List patients
+                        new DoctorData.MyPatients().Execute();  // List patients
                         break;
                     case "3":
-                        new DoctorData.AllAppointments(this).Execute(); // List all appointments for the logged-in doctor
+                        new DoctorData.AllAppointments(this.Id).Execute();                        // List all appointments for the logged-in doctor
                         break;
                     case "4":
                         new DoctorData.ParticularPatient().Execute(); // Check particular patient

@@ -43,10 +43,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddDoctor.cs" />
-    <Compile Include="AddPatient.cs" />
     <Compile Include="Administrator.cs" />
     <Compile Include="AdministratorData\AddDoctor.cs" />
+    <Compile Include="AdministratorData\AddPatient.cs" />
     <Compile Include="AdministratorData\AllPatients.cs" />
     <Compile Include="AdministratorData\CheckDoctorDetails.cs" />
     <Compile Include="AdministratorData\CheckPatientDetails.cs" />
@@ -70,7 +69,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="appointment.txt" />
     <Content Include="data.txt" />
   </ItemGroup>
   <ItemGroup />
